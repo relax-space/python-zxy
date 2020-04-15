@@ -1,0 +1,82 @@
+本文内容引自开源社区github
+原贴地址：https://github.com/RichardFu123/Python100Cases
+
+
+实例001：九九乘法表
+题目 输出 9*9 乘法口诀表。
+
+1*1= 1
+2*1= 2 2*2= 4
+3*1= 3 3*2= 6 3*3= 9
+4*1= 4 4*2= 8 4*3=12 4*4=16
+5*1= 5 5*2=10 5*3=15 5*4=20 5*5=25
+6*1= 6 6*2=12 6*3=18 6*4=24 6*5=30 6*6=36
+7*1= 7 7*2=14 7*3=21 7*4=28 7*5=35 7*6=42 7*7=49
+8*1= 8 8*2=16 8*3=24 8*4=32 8*5=40 8*6=48 8*7=56 8*8=64
+9*1= 9 9*2=18 9*3=27 9*4=36 9*5=45 9*6=54 9*7=63 9*8=72 9*9=81
+
+
+程序分析 分行与列考虑，共9行9列，i控制行，j控制列。
+
+for i in range(1,10):
+    for j in range(1,i+1):
+        print('%d*%d=%2ld '%(i,j,i*j),end='')
+    print()
+
+
+实例002：字符串构成
+题目 输入一行字符，分别统计出其中英文字母、空格、数字和其它字符的个数。
+
+程序分析 利用 while 或 for 语句,条件为输入的字符不为 ‘\n’。
+
+string=input("输入字符串：")
+alp=0
+num=0
+spa=0
+oth=0
+for i in range(len(string)):
+    if string[i].isspace():
+        spa+=1
+    elif string[i].isdigit():
+        num+=1
+    elif string[i].isalpha():
+        alp+=1
+    else:
+        oth+=1
+print('space: ',spa)
+print('digit: ',num)
+print('alpha: ',alp)
+print('other: ',oth)
+
+
+
+实例003：调用函数
+题目 练习函数调用。
+
+
+def hello():
+    print('Hello World!')
+def helloAgain():
+    for i in range(2):
+        hello()
+
+if __name__=='__main__':
+    helloAgain()
+
+实例004：设置输出颜色
+题目 文本颜色设置。
+
+程序分析 无。
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+print(bcolors.WARNING + "警告的颜色字体?" + bcolors.ENDC)
+
+

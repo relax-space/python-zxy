@@ -4,8 +4,16 @@
 # 假设将以下输入提供给程序：
 # Hello world world Practice makes perfect
 # Then, the output should be:
-# HELLO WORLD PRACTICE MAKES PERFECT
+# HELLO MAKES PERFECT PRACTICE WORLD
 
 # 提示：
 # 如果将输入数据提供给问题，则应假定它是控制台输入。
 # 我们使用set容器自动删除重复的数据，然后使用sorted（）对数据进行排序。
+
+s = input("由空格分隔的单词序列:")
+
+s = s.upper().split(" ")
+s.sort()
+s = set(s)
+s1 = sorted(s)
+print("Then, the output should be:"," ".join(s1))

@@ -14,18 +14,20 @@ class JdDownloader:
     
     def download(self,keyword):
         url = f"https://search.jd.com/Search?keyword={keyword}&enc=utf-8"
+        # print(url)
         html = self.fetchHtml(url)
         datas = self.parseHtml(html)
         print("333333333")
         return datas
     
     def fetchHtml(self,url):
+        # url = f"https://search.jd.com/Search?keyword={keyword}&enc=utf-8"
         headers = {
             "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
             }
         html = requests.get(url,headers=headers)
         html.encoding = html.apparent_encoding #为了避免乱码
-        print("11111111111")
+        # print(html.text)
         return html.text
 
     
@@ -49,7 +51,7 @@ class JdDownloader:
                 "link":title.find_all("a")[0].get("href"),
                 "img":img.find_all("a")[0].find("img").get("source-data-lazy-img"),
             })
-        print("2222222222222")
+            print('11')
         return datas
     
 

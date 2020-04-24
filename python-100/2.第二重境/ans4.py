@@ -4,6 +4,7 @@ import requests
 from lxml import etree
 import time
 import csv
+# https://blog.csdn.net/qq_42750240/article/details/87890330
 #定义函数抓取每页前30条商品信息
 class jd:
     def crow_first(self,n,keyword):
